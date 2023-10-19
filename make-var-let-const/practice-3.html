@@ -1,0 +1,26 @@
+<script>
+  //function 함수(){} : 전부가 hoisting 된다.
+  // var 함수 function(){} : 선언된 부분만 hoisting이 된다.
+
+  // 함수();
+  // var 함수 = function () {
+  //   console.log(안녕);
+  //   var 안녕 = "hello";
+  // };
+  //
+  //ERROR 함수가 아니라는 에러 발생
+
+  // let a = 1;
+  // var 함수 = function () {
+  //   a = 2; //함수를 만들기만 했지 실행하지 않아서
+  // };
+  // console.log(a); //출력 : 1
+
+  let a = 1;
+  var b = 2;
+  window.a = 3;
+  window.b = 4;
+  //a가 조금 더 범위가 작고 가까운 1을 참조해서 사용한다
+  //자바스크립트 변수를 사용할 때  참조 할 만한 변수가 내 주변에 없으면 계속 상위 중괄호로 시선을 돌리면서 참조한다.
+  console.log(a + b); //5
+</script>

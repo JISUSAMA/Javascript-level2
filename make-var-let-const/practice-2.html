@@ -1,0 +1,18 @@
+<div class="modal" style="display: none">모달창0</div>
+<div class="modal" style="display: none">모달창1</div>
+<div class="modal" style="display: none">모달창2</div>
+
+<button class="btn">버튼0</button>
+<button class="btn">버튼1</button>
+<button class="btn">버튼2</button>
+
+<script>
+  var 버튼들 = document.querySelectorAll(".btn");
+  var 모달창들 = document.querySelectorAll(".modal");
+
+  for (let i = 0; i < 3; i++) {
+    버튼들[i].addEventListener("click", function (e) {
+      모달창들[i].style.display = "block";
+    });
+  }
+</script>

@@ -1,0 +1,12 @@
+<script>
+  var 자료 = { data: [1, 2, 3, 4, 5] };
+
+  자료.전부더하기 = function () {
+    var sum = 0;
+    this.data.forEach(function (e) {
+      sum += e;
+    });
+    console.log(sum);
+  };
+  자료.전부더하기();
+</script>

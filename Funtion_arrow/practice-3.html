@@ -1,0 +1,15 @@
+<button id="버튼">버튼이에요</button>
+<script>
+  document.getElementById("버튼").addEventListener("click", function () {
+    setTimeout(() => {
+      console.log(this.innerHTML);
+    }, 1000);
+  });
+
+  document.getElementById("버튼").addEventListener("click", function () {
+    var button = this;
+    setTimeout(() => {
+      console.log(button.innerHTML);
+    }, 2000);
+  });
+</script>
