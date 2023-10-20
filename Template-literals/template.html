@@ -1,6 +1,123 @@
 <div></div>
 <script>
-  //`(backtick/backquote) 문자열의 장점 = 엔터키 가능, 중간중간에 변수 넣기 쉬움
-  var 문자 = `손흥
-    민`;
+  /*-------------------------------------------------------------------------
+    var 변수 = "손흥민";
+    //`(backtick/backquote) 문자열의 장점 = 엔터키 가능, 중간중간에 변수 넣기 쉬움
+    var 문자1 = `안녕하세요 저는 ${변수} 입니다.`;
+    var 문자2 = "안녕하세요 저는" + 변수 + "입니다.";
+    console.log(문자1);
+    console.log(문자2);
+
+    //tagged literal
+    // function 함수() {
+    //   return 10;
+    // }
+    // // 함수();
+    // console.log(함수`안녕하세요 저는 ${번수} 입니다.`); //tagged literal
+
+    function 해체분석기(문자들, 변수들, 변수들2) {
+      console.log(문자들); //  (2) ['안녕하세요 저는 ', ' 입니다.', raw: Array(2)]
+      console.log(변수들); //손흥민
+      console.log(변수들2); //손흥민
+      console.log(문자들[1] + 변수들 + 문자들[0]); // 입니다. 손흥민안녕하세요 저는
+    }
+    //해체 분석용 함수를 만든 뒤에 파리미터 두개를 넣으면 문자를 해체 분석이 가능하다
+    해체분석기`안녕하세요 저는 ${변수} 입니다. ${변수}`;
+  --------------------------------------------------------------------------------*/
+  /*--------------------------------------------------------------------------------
+    var pants = 0;
+    var socks = 0;
+
+    // `바지${pants} 양말${socks}`;
+
+    function 해체분석기(word, count1, count2) {
+      console.log(word[0] + count2 + " " + word[1] + count1);
+      console.log(`${word[0]} ${count2} ${word[1]} ${count1}`);
+    }
+    해체분석기`바지${pants} 양말${socks}`;
+
+    function 해체분석기1(word, count1, count2) {
+      if (count1 == 0) {
+        count1 = "안팔아요";
+      }
+      if (count2 == 0) {
+        count2 = "안팔아요";
+      }
+      console.log(`${word[0]} ${count1} ${word[1]} ${count2}`);
+    }
+
+    해체분석기1`바지${pants} 양말${socks}`;
+    --------------------------------------------------------------------------------*/
+  /*--------------------------------------------------------------------------------
+  //모든 괄호를 없애주는 Spread Operator 활용법
+  //배열 합치기 /복사 할떄 주로 사용
+
+  var array = ["hello", "world"];
+  //Array에 붙이면 대괄호를 제거해준다.
+  console.log(...array); //hello world
+
+  var 문자 = "hello";
+  console.log(문자); //hello
+  //스프레드 오퍼레이터를 사용하면 문자를 하나씩 펼쳐준다
+  console.log(...문자); //h e l l o
+
+  var a = [1, 2, 3];
+  var b = [4, 5];
+
+  var c = [...a, ...b];
+  console.log(c); //(5) [1, 2, 3, 4, 5]
+
+  var d = [1, 2, 3];
+  // var f = d; //값을 공유하게됨 -d가 변하면 f도 같이 변하게됨
+  var f = [...d]; //각각 독립적인 값을 가지도록 Spread Operator를 사용한다.
+  d[3] = 4;
+  console.log(d); //[1, 2, 3, 4]
+  console.log(f); //[1, 2, 3]
+
+  var obj1 = { a: 1, b: 2 };
+  var obj2 = { ...obj1, c: 3 };
+  console.log(obj2); //{a: 1, b: 2, c: 3}
+
+  //값 중복에서는 가장 뒤에 있는 걸 적용
+  var obj3 = { a: 1, b: 2 };
+  var obj4 = { a: 3, ...obj3 };
+  var obj5 = { ...obj3, a: 3 };
+  console.log(obj4); //{a: 1, b: 2}
+  console.log(obj5); //{a: 3, b: 2}
+
+  function 더하기(a, b, c) {
+    console.log(a + b + c);
+  }
+  var array = [10, 20, 30];
+  더하기(array[0], array[1], array[2]);
+  더하기.apply(undefined, array);
+  더하기(...array); //60
+
+  var person1 = {
+    인사: function () {
+      console.log(this.name1 + " 안녕");
+    },
+  };
+  person1.인사();
+  //person1.인사()를 person2에 적용하고 싶을때
+  var person2 = {
+    name1: "손흥민",
+  };
+  //둘다 비슷하게 사용된다.
+  person1.인사.apply(person2, [1, 2]);
+  person1.인사.call(person2, 1, 2);
+    --------------------------------------------------------------------------------*/
+  function 함수(a, b, c) {
+    for (var i = 0; i < arguments.length; i++) {
+      console.log(arguments[i]);
+    }
+  }
+  //함수(2,3,4);
+  //rest 파라미터 사용하기
+  //arguments 는 모든 파라미터를 []에 담아줌
+  //rest parameter 는 이 자리에 오는 모든 파라미터를 []에 담아준다.
+  function 함수2(a, b, ...파라미터들) {
+    console.log(파라미터들); //[3, 4, 5, 6, 7]
+  }
+  함수2(1, 2, 3, 4, 5, 6, 7);
 </script>

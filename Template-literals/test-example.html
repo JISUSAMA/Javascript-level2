@@ -1,0 +1,59 @@
+<script>
+  //1번
+  //   var a = [1, 2, 3];
+  //   var b = "김밥";
+  //   var c = [...b, ...a];
+  //   console.log(c);
+
+  //2번
+  //   var a = [1, 2, 3];
+  //   var b = ["you", "are"];
+  //   var c = function (a, b) {
+  //     console.log([[...a], ...[...b]][1]);
+  //   };
+  //   c(a, b);
+
+  //   //3번
+  //   function 함수(a = 5, b = a * 2) {
+  //     console.log(a + b);
+  //     return 10;
+  //   }
+  //  함수(3);
+
+  //4번
+  //   function 함수(a = 5, b = a * 2) {
+  //     console.log(a + b);
+  //   }
+  //   함수(undefined, undefined);
+
+  //5번
+  //   function 어레이(...array) {
+  //     return array;
+  //   }
+  //   var newArray = 어레이(1, 2, 3, 4, 5);
+  //   console.log(newArray);
+
+  //6번
+  //   var numbers = [2, 3, 4, 5, 6, 1, 3, 2, 5, 5, 4, 6, 7];
+  //   console.log(Math.max(...numbers));
+
+  //   //7번
+  //   function 정렬([...a]) {
+  //     console.log(a.sort());
+  //   }
+  //   정렬("bear");
+
+  //8번
+  function 글자세기(a) {
+    var ob1 = {};
+    [...a].sort().forEach(function (e) {
+      if (ob1[e] > 0) {
+        ob1[e]++;
+      } else {
+        ob1[e] = 1;
+      }
+    });
+    console.log(ob1);
+  }
+  글자세기("aabcb");
+</script>
