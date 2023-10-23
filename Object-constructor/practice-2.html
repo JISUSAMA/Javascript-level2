@@ -1,0 +1,9 @@
+<script>
+  function Parent() {
+    this.name = "Kim";
+  }
+  var a = new Parent();
+
+  a.__proto__.name = "Park";
+  console.log(a.name);
+</script>

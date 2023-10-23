@@ -1,0 +1,43 @@
+<script>
+  //   //비슷한 object를 쉽게 찍어낼 수 있는 constructor 문법
+  //   var 사람 = { name: "kim" };
+  //   var 사람 = { name: "kim" };
+  //   var 사람 = { name: "kim" };
+
+  var 학생1 = {
+    name: "kim",
+    age: 15,
+    sayHI: function () {
+      console.log("안녕하세요" + this.name + "입니다.");
+    },
+  };
+  //constructor 생성하기
+  //상속(부모)
+  function Student(name = "kim", age = 20) {
+    this.name = name; //this.는 새로 생성되는 object를 뜻한다.
+    this.age = age;
+    this.sayHI = function () {
+      console.log("안녕하세요" + this.name + "입니다.");
+    };
+  }
+
+  //prototype은 유전자 - 모든 자식들이 물려 받기가 가능하다
+  //prototype은 함수에만 생성이 가능하다
+  Student.prototype.gender = "남";
+  //상속(자식)
+  var 학생1 = new Student("song", 15); //새로운 object를 만들어준다.
+  var 학생2 = new Student("park"); //새로운 object를 만들어준다.
+
+  //내 부모의 유전자(prototype)을 검사 하고싶으면 __proto__를 사용하면된다.
+  console.log(학생1);
+  console.log(학생1.__proto__); //부모의 유전자 출력 가능
+
+  학생1.sayHI();
+  학생2.sayHI();
+
+  var 부모 = { name: "kim" };
+  //__proto__를 사용해서 부모님 강제 등록하기
+  var 자식 = {};
+  자식.__proto__ = 부모;
+  console.log("자식 name : " + 자식.name);
+</script>

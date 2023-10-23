@@ -1,0 +1,21 @@
+<script>
+  var arr = [1, 2, 3];
+  Array.prototype.remove3 = function () {
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] == 3) {
+        this.splice(i, 1);
+      }
+    }
+  };
+
+  Array.prototype.removeNum = function (num) {
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] == num) {
+        this.splice(i, 1);
+      }
+    }
+  };
+  arr.remove3();
+  arr.removeNum(1);
+  console.log(arr); //[1,2]
+</script>

@@ -1,0 +1,45 @@
+<script>
+  //객체지향 문법을 사용하는 이유는 object를 여러개 만드어서 사용하려고 하는 것
+  /*----------------------------------------------------------
+    //상속 기능을 구현하는 다른 방법(ES5)방식
+    //ES5 상속 기능
+    //   Object.create(프로토타입ob);
+    var 부모 = { name: "kim", age: 50 };
+    var 자식 = Object.create(부모); //상속 기능을 구현
+    console.log(자식);
+    console.log("자식.name : " + 자식.name);
+    자식.age = 10; //자식의 age를 변경하는 방법
+    console.log("자식.age : " + 자식.age);
+
+    var 손자 = Object.create(자식);
+    console.log(손자.age); //자식의 age가 나옴 10
+  ----------------------------------------------------------------------*/
+
+  //ES6 방식 :CLASS 의 상속
+  class 부모 {
+    //1.constructor 안에 구현 ,자식이 직접 함수를 가진다
+    constructor() {
+      this.name = "kim";
+      this.sayHI = function () {
+        console.log("hello"); //
+      };
+    }
+    //2.부모.prototype에 추가됨
+    sayHI_HELLO() {
+      console.log("hello HI");
+    }
+    say_HELLO() {
+      console.log("hello");
+    }
+  }
+  var 자식 = new 부모();
+  console.log(자식);
+  자식.sayHI();
+  자식.sayHI_HELLO();
+  //부모 prototype을 출력해줌
+  자식.__proto__;
+  console.log(Object.getPrototypeOf(자식));
+
+  //class  안에 함수 여러개 추가하는 방법
+  부모.prototype.sayHellow = function () {};
+</script>

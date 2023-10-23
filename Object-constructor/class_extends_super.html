@@ -1,0 +1,36 @@
+<script>
+  //유사한 class를 하나더 만들고 싶으면 extends
+  class 부모 {}
+  //복사/상속 할 값이 많으면 힘들기 때문에 extends로 class를 복사한다
+  class 할아버지 {
+    constructor(name) {
+      this.성 = "박";
+      this.이름 = name;
+    }
+    sayHi() {
+      console.log("hi! 저는 할아버지");
+    }
+  }
+  var 할아버지1 = new 할아버지("병수");
+  class 아버지 extends 할아버지 {
+    constructor(name) {
+      //extends 해서 만든 class는 this 를 그냥 사용하지 못한다. super();라는 함수를 사용한 다음에 작성해주어야 오류가 나지 않는다.
+      super(name);
+      /*
+      super()함수는 물려받는 class의 constructor라는 뜻이다.
+       constructor(name) {
+      this.성 = "kim";
+      this.이름 = name;
+    }
+  }*/
+      this.나이 = 50;
+    }
+    sayHi() {
+      console.log("hi! 저는 아버지");
+      super.sayHi(); //부모 prototype을 의미한다.  //"hi! 저는 할아버지"
+    }
+  }
+  var 아버지1 = new 아버지("태영");
+  console.log(아버지1);
+  아버지1.sayHi(); //"hi! 저는 아버지" 나와 가까운 곳이 나옴
+</script>
