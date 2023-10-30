@@ -1,0 +1,26 @@
+<script>
+  //get/set 응용하기
+  var data = {
+    odd: [],
+    even: [],
+    setter함수: function (...num) {
+      //여기서 funtion()함수를 사용하게되면 odd, even 배열이 unfined 로 나오기 때문에 ()=>{} 에로우를 사용해서 funtion함수 위에있는 odd,even을 바로 가져와서 사용할 수 있게 된다. 아우ㅜ! 어려워!!!!
+
+      num.forEach((e) => {
+        if (e % 2 == 0) {
+          //짝수
+          this.even.push(e);
+        } else {
+          // 홀수
+          this.odd.push(e);
+        }
+      });
+    },
+    getter함수: function () {
+      return [...this.odd, ...this.even].sort();
+    },
+  };
+  console.log(data);
+  data.setter함수(1, 3, 6, 9, 5, 8);
+  console.log(data.getter함수());
+</script>
