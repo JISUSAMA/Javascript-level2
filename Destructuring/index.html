@@ -1,0 +1,42 @@
+<script>
+// //array 데이터를 전부 변수에 담고 싶을 경우
+//     var arr =[2,3,4];
+//     var [a,b,c =10] =[2,3];
+//  //array destructuring 할때 몇개를 빼먹는다면  = 기본값 지정가능
+// //지정해주지 않은 변수들은 undifined가 됨
+// var obj = {name:'kim',age :30}
+// var name = obj.name;
+// console.log(name);
+
+
+/*----------------------------------------------------------------------
+//object 데이터를 꺼내 변수에 담으려면 ,object destructuring
+//모양을 맞춰서 넣어주면 데이터가 담겨진다.
+//변수명을 key명과 똑같이 사용해야함, 기본값 지정가능
+
+var{ name, age =20} ={name:'kim', age:30};
+//'나이'라는 값을 사용해도 'kim'을 출력 가능함
+var{ name:나이 ='park', age =20} ={name:'kim', age:30};
+------------------------------------------------------------------------*/
+var name ='kim';
+var age = 30;
+var obj = {name:name , age:age};
+var obj = {name , age}; //es6
+
+var obj ={name:'kim', age:30};
+function 함수(파라미터){
+console.log(파라미터);
+}
+//name,age라는 파라미터 변수를 입력 받을 수 있다는 의미를 가진다
+function 함수1({name,age}){
+    console.log(name);
+    console.log(age);
+}
+함수1(obj); //kim 30 출력
+
+function 함수2([name,age]){
+    console.log(name);
+    console.log(age);
+}
+함수2([1,2]); //1 2 출력
+</script>

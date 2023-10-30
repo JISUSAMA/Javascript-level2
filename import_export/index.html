@@ -1,0 +1,38 @@
+<!-- <script src="library.js">
+//모듈화 해서 개발가능
+</script> -->
+<script type="module">
+//es6에서 사용하는 모듈화
+//library.js 에 있던 모든 내용을 가져오지 않는다
+//import 가져올거 from '경로'
+//export defalt의 경우는 원하는 변수명을 선언이 가능하다
+// import aaa from './library.js';
+// console.log(aaa); //d의 값인 50이 출력된다. 
+
+//export만 적혀있는 변수를 사용하려면 {사용하려는 변수명} 을 정확하게 작성해주어야 한다.
+// import {a}from './library.js';
+// console.log(a);
+// import {b}from './library.js';
+// console.log(b);
+
+// import {a,b} from './library.js';
+// console.log(a,b);
+
+//default가 먼저 오고 나머지 변수들이 다음에 작성되어야한다 
+// import 작명d,{a,b} from './library.js';
+
+//변수명이 맘에 안들면 새로짓자 
+// import{a as 새로운a , b as 새로운b} from './library.js';
+// console.log(a);
+
+//모든걸 다 import 해오는 *기호
+import 디폴트d, *as 변수들명 from './library.js';
+console.log(변수들명.a);
+console.log(변수들명.b);
+//export default 같은 경우는 따로 만들어서 아용해야한다.
+console.log(디폴트d); //d는 이런식으로 작성해주어야 사용이 가능하다
+
+
+
+
+</script>
