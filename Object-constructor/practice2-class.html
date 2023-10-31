@@ -1,0 +1,20 @@
+<script>
+  //get/set 응용하기
+  class Unit {
+    constructor() {
+      this.공격력 = 5;
+      this.체력 = 100;
+    }
+
+    get battlePoint() {
+      return this.공격력 + this.체력;
+    }
+    set heal(hp) {
+      this.체력 += hp;
+    }
+  }
+  var 인스턴스1 = new Unit();
+  console.log(인스턴스1.battlePoint);
+  인스턴스1.heal = 50;
+  console.log(인스턴스1);
+</script>

@@ -1,0 +1,28 @@
+<script>
+  class 강아지 {
+    constructor(kind, color) {
+      (this.type = kind), (this.color = color);
+    }
+  }
+  var 강아지1 = new 강아지("말티즈", "white");
+  var 강아지2 = new 강아지("진돗개", "brown");
+
+  class 고양이 extends 강아지 {
+    constructor(kind, color, age) {
+      super(kind, color);
+      this.age = 2;
+    }
+    한살먹기() {
+      console.log(this.age + 1);
+    }
+  }
+  var 고양이1 = new 고양이("코숏", "white", 5);
+  var 고양이2 = new 고양이("러시안블루", "brown", 2);
+  console.log(고양이1);
+  console.log(고양이2);
+  console.log(강아지1);
+  console.log(강아지2);
+
+  고양이1.한살먹기();
+  //   강아지1.한살먹기(); //error
+</script>

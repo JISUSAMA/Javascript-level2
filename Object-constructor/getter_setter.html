@@ -1,0 +1,51 @@
+<script>
+  /*-----------------------------------------------------
+  var 사람 = {
+    name: "park",
+    age: 20,
+    //get함수들(getter) return 이 반드시 있어야한다.
+    get nextAge() {
+      return this.age + 1;
+    },
+    // setAge(a) {
+    //   this.age = parseInt(a); //데이터 수정전 미리 검사 가능
+    // },
+
+    //set함수들(setter) 파라미터가 1개 이상있어야한다.
+    set setAge(a) {
+      this.age = parseInt(a);
+    },
+  };
+  //함수를 만들어서 object 데이터를 다루는 이유는 object 1. 자료가 복잡할 때 이득 /2. 자료 수정시 편리 /
+
+  //get /set 을 사용하지 않을 경우 다음과 같이 작성을 해주어야한다.
+  //   사람.nextAge(); // nextAge() ;
+  //   사람.age = "20"; //setAge();
+  //   사람.setAge("20"); //setAge();
+
+  //get/set을 사용하는 경우 다음과 같이 작성해주어야한다.
+  //set은 데이터를 변경하는 함수에 , get은 데이터를 꺼내쓰는 함수에 사용한다.
+  사람.setAge = "20"; //set setAge();
+  사람.nextAge; //get nextAge();
+  //복잡한 소괄호가 보기 싫을 경우, set/get 키워드를 사용
+
+  -----------------------------------------------------*/
+
+  class 사람 {
+    constructor() {
+      this.name = "park";
+      this.age = 20;
+      this.next;
+    }
+    get nextAge() {
+      return (this.next = parseInt(this.age + 1));
+    }
+    set setName(name) {
+      this.name = name;
+    }
+  }
+  var 사람1 = new 사람();
+  사람1.nextAge;
+  사람1.setName = "jisu";
+  console.log(사람1);
+</script>
