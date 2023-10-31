@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <button id="test">버튼</button>
+</body>
+<script>
+   
+async function 연산() {
+    console.log('dddddd');
+        var 프로미스 = new Promise(function (resolve, reject) {
+            document.querySelector('#test').addEventListener('click',function(){
+                resolve('성공했어요!');
+            });
+        })
+        try {
+            var 결과 = await 프로미스;
+        }
+        catch {
+            console.log('실패!')
+        }
+        console.log(결과);
+    }
+    연산();
+</script>
+
+</html>

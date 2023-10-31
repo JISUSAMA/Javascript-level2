@@ -1,0 +1,33 @@
+<script>
+ var products = [
+  {
+    name1 : 'chair',
+    price1 : 7000,
+  },
+  {
+    name2 : 'sofa',
+    price : 5000,
+  },
+  {
+    name1 : 'desk',
+    price3 : 9000,
+  },
+];
+
+let newValue ;
+let newKey;
+
+for(let item of products){
+    for(let key in item){
+
+        if(isNaN(parseInt(key.slice(-1))) ==false){
+            newValue =item[key];
+            newkey =key.slice(0,-1);
+            item[newkey] = newValue;
+            console.log(  item[newkey]);
+            delete item[key];
+        }
+    }
+}
+
+</script>

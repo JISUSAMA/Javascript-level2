@@ -1,0 +1,55 @@
+<script>
+    //순차적 실행을 위해 콜백 함수 대신 쓸수 있는 코딩 패턴
+    //성공이나 실패를 판정하는 기계라고 할 수 있음
+
+    //async/await은 promise를 깔끔하게 사용할 수있도록 만들어진 것
+
+    //promise 방식
+    // function 더하기(){
+    //     1+1;
+    //     //연산이 끝났을 때 특정코드를 실행하고 싶은 경우,
+    // }
+    // 더하기().then(function(){
+    // })
+
+    //async는 함수 앞에만 사용이 가능하다
+    //성공만 가능하고 실패는 사용이 불가능하다 
+    // async function 더하기(){
+    //     // return Promise.reject('실패!'); //강제로 실패로 만들어 줄 수는 있다.
+    //    return 1+1;
+    //     //async를 funciton앞에 붙이면 함수 실행 후에 promise 오브젝트가 남음 
+    //     //new promise() 사용하지 않아도 됨
+    // }
+    // 더하기().then(function(result){
+    //     console.log('성공!'); //.then()사용가능하다
+    //     console.log(result);
+    // })
+
+    //await은 async funtion 안에서 사용됨
+    async function 빼기(결과){
+        var 프로미스 = new Promise(function(성공,실패){
+            var 연산 = 1-1;
+            // 실패(100);
+            성공(100);
+        })
+      
+        try
+        {
+        //이걸해보고
+        var 결과 = await 프로미스; 
+        //await은 프로미스가 해결될때까지 기다라는 의미
+        //프로미스 실패시 error 뜨고 멈춤
+        console.log(결과);
+        }
+        catch
+        {
+            //안될시 여기로
+            console.log('실패함!');
+        }
+    }
+    빼기();
+//     프로미스.then(function(){
+//     console.log('연산 성공!');
+// })
+
+</script>

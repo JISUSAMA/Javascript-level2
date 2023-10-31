@@ -93,27 +93,36 @@ worker.js에서 작업이 완료될 시 postMessage() 이렇게 실행하면
 
 //ES6
 //프로미스는 성공/실패를 판정하는 기계다 
-var promise  = new Promise(function(resolve, reject){
+// var promise  = new Promise(function(resolve, reject){
  
-    var i =1+1;
-    resolve(i); //성공 판정 //데이터값도 전달이 가능하다 
-    // reject(i);// 실패 판정
+//     var i =1+1;
+//     resolve(i); //성공 판정 //데이터값도 전달이 가능하다 
+//     // reject(i);// 실패 판정
+// }); 
+// promise.then(function(결과){ 
+//     //프로미스가 성공일경우 실행할 코드
+//     console.log('성공'+결과);
+// }).then(function(){console.log('성공함'); })
+// .catch(function(){console.log('실패')});
+
+// promise.catch(function()
+// {
+//     //promise catch는 실패했을 때 실행할 코드
+// });
+
+// promise.finally(function()
+// {
+//     //promise finally는 이벤트가 발생했을 떄 실행 하는 코드 
+// });
+
+// 콜백함수 디자인의 대체품, fetch()와 jQuery.ajax()가 promise가 적용된 예시
+var promise  = new Promise(function(resolve, reject){
+ setTimeout(function(){resolve()},1000); //1초후 실행
 }); 
-promise.then(function(결과){ 
-    //프로미스가 성공일경우 실행할 코드
-    console.log('성공'+결과);
+promise.then(function(){ 
+ //프로미스가 성공일경우 실행할 코드
+ console.log('성공');
 }).then(function(){console.log('성공함'); })
 .catch(function(){console.log('실패')});
 
-
-promise.catch(function()
-{
-    //promise catch는 실패했을 때 실행할 코드
-});
-
-
-promise.finally(function()
-{
-    //promise finally는 이벤트가 발생했을 떄 실행 하는 코드 
-});
 </script>

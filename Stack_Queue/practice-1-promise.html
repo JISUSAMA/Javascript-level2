@@ -1,0 +1,41 @@
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<img id="test" src ='https://codingapple1.github.io/kona.jpg'>
+<script>
+    var 이미지로딩 = new Promise(function(resolve,reject){
+        var img = document.querySelector('#test');
+    //이미지 로딩
+    img.addEventListener('load',function(){
+    resolve();});
+    //이미지 로딩 실패
+    img.addEventListener('error',function(){reject();});
+    });
+    
+    이미지로딩.then(function(){
+        console.log('로딩성공')
+    }).catch(function(){console.log('로딩실패')})
+
+    //ajax 요청 성공/실패 알려주는 promise
+    //서버에게 경로에 있는 데이터를 요청
+
+
+
+    var 프로미스 = 
+        AjaxURL('https://codingapple1.github.io/hello.txt');
+  프로미스.then(function(result){
+    console.log('Ajax :'+result);
+   return AjaxURL('https://codingapple1.github.io/hello2.txt');
+  }).then(function(result){
+    console.log('Ajax2 :'+result);
+  });
+  프로미스.catch(function(){
+    console.log('Ajax : 실패');
+  })
+
+function AjaxURL(URL){
+    return new Promise(function(resolve,reject){
+        $.get(URL).done(function(result){
+        resolve(result);    //result 는 Ajax 요청 결과이다
+    });
+    });
+}
+</script>

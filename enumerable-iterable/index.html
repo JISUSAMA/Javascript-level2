@@ -1,0 +1,44 @@
+<script>
+    var 오브젝트 = { name: 'kim', age: 30 };
+
+    //오브젝트.name의 숨겨진 정보를 출력해줌
+    //{value: 'kim', writable: true, enumerable: true, configurable: true
+    Object.getOwnPropertyDescriptors(오브젝트, 'name');
+
+    //-----------------------------------------------------
+    //     for(var i=0; i<3; i++){
+    // //코드를 여러번 실행할때 사용한다
+    //     }
+
+    //---------------------------------------------
+    // //array,object에서 자료를 꺼내 쓸 때
+    //     [1,2,3].forEach(); //array 전용 반복문
+    //-----------------------------------------------
+
+    // class 부모{
+    // }
+    // 부모.prototype.name ='park';
+    // var 오브젝트 = new 부모();
+    //     for (var key in 오브젝트){ 
+    // //object 전용 반복문, 오브젝트 값을 하나씩 꺼내서 사용하고 싶을 떄 사용함
+    //    //enumerable 한 것만 반복해줌
+    //    //부모의 prototype도 반복해준다
+    //    //hasOwnProperty를사용하면 내가 가진 오브젝트 key 값만 출력해준다.
+    // if(오브젝트.hasOwnProperty(key)){
+    //     console.log(오브젝트[key]);
+    // }
+    //     }
+
+    //--------------------------------------------------------------------------
+   var array =[2,3,4,5];
+    //iterable 전용 반복문
+    //array, 문자, arguments, NodeList, Map, Set
+    for (var 자료 of array) {
+        console.log(자료);
+    }
+    for(var 자료 of 'ㄴㅇㄹㄴㄷㄹㄷㄹㄴ'){
+        console.log(자료); //ㄴㅇㄹㄴㄷㄹㄷㄹㄴ 단어 하나하나 출력함
+    }
+    array[Symbol.iterator](); //Symbol.iterator 내부 데이터 출력을 도와주는 함수같은것
+
+</script>
