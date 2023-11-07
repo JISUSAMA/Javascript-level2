@@ -1,0 +1,44 @@
+<body>
+  <custom-input name="아이디"></custom-input>
+  <custom-input name="비번"></custom-input>
+  <script>
+    // <커스텀태그>의 장점은 길고 복잡한 HTMl을 간결하게 작성해서 코드의 양을 줄일 수 있다, 중복제거, 다른페이지에서 재활용도 가능하다
+    class 클래스 extends HTMLElement {
+      connectedCallback() {
+        //html 생성하는 방법 1
+        //만들어진 태그가 HTMl에서 사용될 때 실행 할 코드를 작성하는 곳
+        //여기서 this는 새로 생성될 <custom-input>을 의미한다
+        this.innerHTML = `
+               <label>이름 인풋</label><input>
+               `;
+        //html 생성하는 방법 2
+        //다음과 같이 코드를 작성하면 생성 속도가 빨라진다
+        let 변수 = document.createElement("label");
+        this.appendChild(변수);
+        //<커스텀 태그> 안에서도 파라미터 문법 구현가능
+
+        //name 파라미터 안에 들어있는 것을 가져와달라는 것을 의미
+        let name = this.getAttribute("name");
+        this.innerHTML = `
+               <label>${name} 인풋 </label><input>
+               `;
+      }
+      //attribute 변경 감지하는 방법
+      static get observedAttributes() {
+        //'name'이라는 속성이 바뀌는지 확인
+        return ["name"];
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        //observedAttributes()에 의해서 속성이 변경된 것이 확인되면 여기서 실행
+        console.log("재생성");
+        this.innerHTML = `
+               <label>${newValue} 인풋 </label><input>
+               `;
+      }
+    }
+    //브라우저 기본 기능, 웹개발 잘하고 싶으면 브라우저 기능을 잘알아야함
+    customElements.define("custom-input", 클래스);
+    //customElements.define()으로 인해서
+    //<custom-input></custom-input> 이라는 태그가 만들어진 상태
+  </script>
+</body>

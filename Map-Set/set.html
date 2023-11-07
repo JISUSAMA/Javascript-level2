@@ -1,0 +1,18 @@
+<script>
+  var name_list = ["park", "kim", "lee", "park"];
+
+  //set : 중복자료를 허용하지 않는 Array
+  //이미 있는 값은 제거 하고 저장해준다
+  var name_list2 = new Set(name_list);
+  console.log(name_list2); //Set(3) {'park', 'kim', 'lee'}
+  name_list2.add("song"); //Set자료형에 자료 추가 하기
+  name_list2.delete("song"); //Set자료형에 자료 제거 하기
+  name_list2.has("song"); //Set자료형 안에 자료 존재 유무 파악하기
+
+  //set <-> array 자료형
+  //name_list :(4)['park', 'kim', 'lee', 'park'] / name_list2 : Set(3) {'park', 'kim', 'lee'}
+  //set자료형 안에 들어가면 중괄호가 사라지고 대괄호만 생성이 되기 때문에
+  // name_list2 안에있는 괄호제거 해주고 기존의 name_list에 넣어주면
+  name_list = [...name_list2];
+  // (3)['park', 'kim', 'lee']
+</script>

@@ -1,0 +1,30 @@
+<script>
+  //map  :자료형 key, value를 저장하는 자료형
+  var person = new Map();
+  person.set("name", "kim"); //name => kim 으로 저장됨
+  person.set("age", 20); //age => 20 으로 저장됨
+
+  //아무 자료형이나 이용해서 key값을 사용할 수 있다
+  person.set(1996, "Year");
+  person.set([1996, 2, 18], "Birth");
+  // => Map 자료형은 자료간의연관성을 표현하기 위해서 사용한다
+  //object 자료형은 자료이름(key)으로 글자만 가능 하지만 Map은 모든 자료형이 자료 이름으로 사용이 가능하다
+
+  //Map에서 자료 꺼내는 방법
+  person.get("age");
+  //Map에서 자료 삭제하는 방법
+  person.get(1996);
+  person.size; //자료 갯수 세는법
+
+  //Map 자료형에 직접 자료 집어 넣는 방법
+  var person = new Map([
+    ["name", "kim"],
+    [1996, "Year"],
+    ["age", 20],
+  ]);
+
+  //반복문으로 Map에서 자료형 꺼내는 법
+  for (var key of person.keys()) {
+    console.log(key);
+  }
+</script>

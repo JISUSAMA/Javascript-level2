@@ -1,0 +1,66 @@
+<head>
+  <!--  <link href="main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <!--   
+    숨겨져있는 Shadow DOM 
+    세부 디테일을 보려면 setting - prefernces - Elements - Show user agent  shadow DOM 을 체크 하면 된다. -->
+  <input type="range" />
+  <!-- Shadow DOM을 만드는 방법 -->
+  <div id="hide"></div>
+  <custom-input name="아이디"></custom-input>
+  <label>
+    이건 색상이 변하지 않아용
+    <custom-input name="비번"></custom-input>
+  </label>
+
+  <!-- Web Component의 단점 : web component를 사용하면 html함수 처럼 묶어서 재사용이 가능하지만
+  스타일을 적용하는 경우 문제가 생긴다. 태그를 스타일링 했을 경우, 스타일링하지 않은 다른 태그 까지 스타일링이 되는 현상이 일어난다. 이문제를 해결하기 위해서 shadowDOM을 사용한다 -->
+
+  <template id="templat1">
+    <!-- templat 태그
+    html 을 만들다 보면 길게 늘어져있는 html 을 임시로 보관 할 수 있도록 하는 공간
+여기 안에다가 html 을 작성하면 외부에서는 보이지 않는다 -->
+
+    <!-- Web Components 태그 와 shadowDOM에서 사용하던 html 을 Template 태그 안에서 깔끔하게 정리 가능-->
+    <label>${name} 인풋</label><input />
+    <style>
+      label {
+        color: red;
+      }
+    </style>
+  </template>
+  <script>
+    class 클래스 extends HTMLElement {
+      connectedCallback() {
+        //shadow DOM 안에 넣지 않고
+        let name = this.getAttribute("name");
+        //스타일링하지 않은 다른 태그 까지 스타일링이 됨
+        // this.innerHTML = `
+        // <label>${name} 인풋</label><input>
+        //          <style>label {color:red}</style>
+        //          `;
+
+        // shadowDOM에 넣은 것들은 외부에 영향을 받지 않는다
+        // this.attachShadow({ mode: "open" });
+        // this.shadowRoot.innerHTML = `
+        // <label>${name} 인풋</label><input>
+        //          <style>label {color:red}</style>`;
+
+        //tmplate 사용하기
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.append(templat1.content.cloneNode(true));
+        let el = this.shadowRoot.querySelector("label");
+        el.addEventListener("click", function () {
+          console.log("클릭");
+        });
+      }
+    }
+    customElements.define("custom-input", 클래스);
+
+    //attachShadow 어둠의 공간을 열어주는 함수
+    document.querySelector("#hide").attachShadow({ mode: "open" });
+    document.querySelector("#hide").shadowRoot.innerHTML = "<p>hide tag<p>";
+  </script>
+  <script></script>
+</body>
